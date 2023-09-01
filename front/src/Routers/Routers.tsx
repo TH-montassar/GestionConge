@@ -1,5 +1,10 @@
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 import { About} from '../pages/About';
+import { Loading } from '../pages/Loading';
+
+
+
+
 
 const Routers = () => {
   return (
@@ -7,8 +12,9 @@ const Routers = () => {
          <Router>
         <Routes>
           
-            <Route path="/about" element={<About />} />
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="/about" element={<About />} />
+           <Route path="/" element={<Loading />} />
+          <Route path="*" element={<div>Not Found</div>} />
         </Routes>
       </Router>
     </div>

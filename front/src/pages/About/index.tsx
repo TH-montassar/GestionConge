@@ -1,3 +1,5 @@
+
+
 import { Inputs } from "../../Components";
 
 export const About = () => {
@@ -5,6 +7,8 @@ export const About = () => {
     <div>
       About
       <Inputs />
+      
+      
     </div>
   );
 };
