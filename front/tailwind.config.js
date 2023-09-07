@@ -162,6 +162,18 @@ export default {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      Primary: "#409EFF",
+      PrimaryDark: "#144093",
+      Success: "#6FBC2B",
+      SuccessDark: "#2B6D0D",
+      Warning: "#FFAE3D",
+      WarningDark: "#B76A1E",
+      danger: "#FF4B38",
+      dangerDark: "#931125",
+      info: "#4692FC",
+      infoDark: "#2353B5",
+      whiteDark: "D6D6D6",
+      background: "#f3f3f8"
     }),
     columns: {
       auto: 'auto',
