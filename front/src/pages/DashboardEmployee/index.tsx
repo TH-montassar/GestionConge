@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { Sidebare } from "./SideBare";
 export const DashboardEmployee = () => {
   return (
-    <div className="">
+    <div className="w-screen">
       <Header />
       <div className="flex w-full">
         <div className="w-[20%]">

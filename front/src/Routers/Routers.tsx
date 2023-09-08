@@ -1,10 +1,12 @@
-import { DashboardEmployee } from "../pages/DashboardEmployee";
-import { About } from "../pages/About";
-import { Loading } from "../pages/Loading";
-
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { DemandeConge } from "../pages/DashboardEmployee/DemandeConge";
-import { ListConge } from "../pages/DashboardEmployee/ListeConge";
+
+import {
+  About,
+  DashboardEmployee,
+  DemandeConge,
+  ListConge,
+  Loading,
+} from "../pages";
 
 const Routers = () => {
   const routes = createBrowserRouter([
