@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 export const Sidebare = () => {
   return (
-    <div className=" fixed  mt-2 h-full  bg-gray-200 p-4 rounded-lg flex items-center">
-      <ul className=" mt-[-10rem] ml-4">
+    <div className=" mt-2 h-[100%] bg-gray-200 p-4 rounded-lg flex-shrink-0 flex flex-col">
+      <div className="flex flex-col h-full">
+      <ul className=" ml-2">
         <li className="mb-8 hover:bg-[#7BAD77]  cursor-pointer  transition duration-300">
           <Link className="text-black hover:text-black " to="/">
             Suivi pointage
@@ -30,7 +31,8 @@ export const Sidebare = () => {
             Consulter & computer
           </Link>
         </li>
-      </ul>
+       </ul>
+      </div>
     </div>
   );
 };

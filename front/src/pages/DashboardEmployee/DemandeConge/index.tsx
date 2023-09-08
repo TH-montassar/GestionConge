@@ -2,7 +2,7 @@ export const DemandeConge = ()=>{
 
     return(
         <div>
-            <div className=" w-[60rem] h-14 bg-gray-200 p-4 rounded-[30px] mt-4"
+            <div className=" w-[60%] h-14 bg-gray-200 p-4 rounded-[30px] mt-4"
             >
                 <h2 className="text-black ml-4 " style={{fontWeight:'bold'}}>Demande de congée</h2>
             </div>

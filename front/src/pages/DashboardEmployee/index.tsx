@@ -3,13 +3,13 @@ import { Header } from "./Header";
 import { Sidebare } from "./SideBare";
 export const DashboardEmployee = () => {
   return (
-    <div className="w-screen">
+    <div className="w-screen  ">
       <Header />
-      <div className="flex w-full">
-        <div className="w-[20%]">
+      <div className="flex ">
+        <div className="w-[12.2%]  ml-2 h-screen">
           <Sidebare />
         </div>
-        <main className=" mt-2 w-[80%] ml-[6rem]">
+        <main className=" mt-2   flex-grow ml-4 ">
           <Outlet />
         </main>
       </div>
