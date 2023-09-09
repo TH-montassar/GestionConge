@@ -6,7 +6,7 @@ export const Sidebare = () => {
       <div className="flex flex-col h-full">
       <ul className=" ml-2">
         <li className="mb-8 hover:bg-[#7BAD77]  cursor-pointer  transition duration-300">
-          <Link className="text-black hover:text-black " to="/">
+          <Link className="text-black hover:text-black " to="suiviPointage">
             Suivi pointage
           </Link>
         </li>

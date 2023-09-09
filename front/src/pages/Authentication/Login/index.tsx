@@ -54,7 +54,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                   <div className="mt-2">
                    <form>
                    <div className="mb-4">
-                <label  class="block text-gray-600 text-sm font-medium">Email</label>
+                <label  className="block text-gray-600 text-sm font-medium">Email</label>
                 <input type="text" id="name" name="name" className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500" placeholder="John Doe"/>
             </div>
             <div className="mb-4">
