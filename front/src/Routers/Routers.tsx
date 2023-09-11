@@ -5,10 +5,9 @@ import {
   DashboardEmployee,
   DemandeConge,
   ListConge,
-  Loading,
+  Loading,SuiviPointage
   
 } from "../pages";
-import { SuiviPointage } from "../pages/DashboardEmployee/SuiviPointage";
 
 
 const Routers = () => {
