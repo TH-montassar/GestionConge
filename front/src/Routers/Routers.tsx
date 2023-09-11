@@ -6,10 +6,8 @@ import {
   DemandeConge,
   ListConge,
   Loading,
-  
+  SuiviPointage,
 } from "../pages";
-import { SuiviPointage } from "../pages/DashboardEmployee/SuiviPointage";
-
 
 const Routers = () => {
   const routes = createBrowserRouter([
@@ -21,7 +19,7 @@ const Routers = () => {
       children: [
         { path: "DemandeConge", element: <DemandeConge /> },
         { path: "listConge", element: <ListConge /> },
-        {path:"suiviPointage" , element: <SuiviPointage/>}
+        { path: "suiviPointage", element: <SuiviPointage /> },
       ],
     },
   ]);
