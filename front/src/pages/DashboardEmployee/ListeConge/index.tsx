@@ -26,7 +26,7 @@ export const ListConge = () => {
             <table className="w-[100%] divide-y  ">
               <thead >
                 <tr >
-                  <th className="px-2 py-3 rounded-tl-[30px] rounded-bl-[30px] bg-[#7BAD77] text-left  text-xs leading-4 font-medium text-black uppercase tracking-wider">
+                  <th className="px-6 py-3 rounded-tl-[30px] rounded-bl-[30px] bg-[#7BAD77] text-left  text-xs leading-4 font-medium text-black uppercase tracking-wider">
                     Motif
                   </th>
                   <th className="px-2 py-3 bg-[#7BAD77]  text-left text-xs leading-4 font-medium text-black uppercase tracking-wider">
@@ -51,15 +51,15 @@ export const ListConge = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td className="px-2 py-4 rounded-tl-[30px] rounded-bl-[30px] whitespace-no-wrap bg-gray-100">formation</td>
-                  <td className="px-2 py-4 whitespace-no-wrap bg-gray-100">jour</td>
-                  <td className="px-2 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
-                  <td className="px-2 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
-                  <td className="px-2 py-4 whitespace-no-wrap bg-gray-100">3j</td>
-                  <td className="px-2 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
+                  <td className="px-6 py-4 rounded-tl-[30px] rounded-bl-[30px] whitespace-no-wrap bg-gray-100">formation</td>
+                  <td className="px-6 py-4 whitespace-no-wrap bg-gray-100">jour</td>
+                  <td className="px-6 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
+                  <td className="px-6 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
+                  <td className="px-6 py-4 whitespace-no-wrap bg-gray-100">3j</td>
+                  <td className="px-6 py-4 whitespace-no-wrap bg-gray-100">20/29/2009 </td>
                   
 
-                  <td className="px-2 py-4 rounded-tr-[30px] rounded-br-[30px]  whitespace-no-wrap bg-gray-100">Accepté</td>
+                  <td className="px-6 py-4 rounded-tr-[30px] rounded-br-[30px]  whitespace-no-wrap bg-gray-100">Accepté</td>
                 </tr>
 
                 <tr>

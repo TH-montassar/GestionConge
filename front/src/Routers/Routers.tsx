@@ -5,7 +5,10 @@ import {
   DashboardEmployee,
   DemandeConge,
   ListConge,
-  Loading,SuiviPointage
+  Loading,
+  SuiviPointage,
+  ConsulteComputer,
+  
   
 } from "../pages";
 
@@ -20,7 +23,9 @@ const Routers = () => {
       children: [
         { path: "DemandeConge", element: <DemandeConge /> },
         { path: "listConge", element: <ListConge /> },
-        {path:"suiviPointage" , element: <SuiviPointage/>}
+        { path: "suiviPointage", element: <SuiviPointage /> },
+        
+        { path: "ConsulterComputer", element: <ConsulteComputer /> },
       ],
     },
   ]);
