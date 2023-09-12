@@ -8,10 +8,9 @@ import {
   Loading,
   SuiviPointage,
   ConsulteComputer,
-  
-  
+  DashboardRH,
+  CreerCompteSalarie,
 } from "../pages";
-
 
 const Routers = () => {
   const routes = createBrowserRouter([
@@ -24,8 +23,15 @@ const Routers = () => {
         { path: "DemandeConge", element: <DemandeConge /> },
         { path: "listConge", element: <ListConge /> },
         { path: "suiviPointage", element: <SuiviPointage /> },
-        
+
         { path: "ConsulterComputer", element: <ConsulteComputer /> },
+      ],
+    },
+    {
+      path: "/DashboardRH",
+      element: <DashboardRH />,
+      children: [
+        { path: "CreerCompteSalarie", element: <CreerCompteSalarie /> },
       ],
     },
   ]);

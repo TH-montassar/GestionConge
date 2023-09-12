@@ -1,11 +1,14 @@
 export const SuiviPointage = () => {
   return (
     <div>
-      <div className=" w-[60%] h-14 bg-gray-200 p-4 rounded-[30px] mt-4">
+      <div className="flex w-full">
+      <div className="  w-[60%] h-14 bg-gray-200 p-4 rounded-[30px] mt-4">
         <h2 className="text-black ml-4 " style={{ fontWeight: "bold" }}>
           Suivi Pointage
-        </h2>
-      </div>
+        </h2> 
+        </div>
+        <button className="w-[18rem] mt-6 ml-8 pb-8 bg-red-500 h-8">Demande de correction pointage</button>
+     </div>
       <div className="overflow-x-auto mt-24">
         <table className="min-w-full">
           <thead>
