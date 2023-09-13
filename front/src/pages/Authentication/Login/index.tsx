@@ -1,5 +1,9 @@
 import { useState, useEffect, FC, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import { RootState } from "../../../Redux/store";
+import { login } from "../../../Redux//action/auth.action";
 
 interface Props {
   isOpenM: boolean;
@@ -11,6 +15,32 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   useEffect(() => {
     setIsModalOpen(isOpenM);
   }, [isOpenM]);
+
+  //initialize inputs empty
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  // console.log(inputs);
+  const dispatch = useDispatch();
+  const { user, isAuthenticated } = useSelector(
+    (state: RootState) => state.auth
+  );
+  console.log(isAuthenticated);
+  console.log(user);
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    if (inputs.email.trim() === "")
+      return toast.info("email or password is required");
+    if (inputs.password.trim() === "")
+      return toast.error("email or password is required");
+
+    dispatch(login(inputs));
+  };
   return (
     <>
       <Transition appear show={isModalOpen} as={Fragment}>
@@ -52,35 +82,54 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                     Sign In
                   </Dialog.Title>
                   <div className="mt-2">
-                   <form>
-                   <div className="mb-4">
-                <label  className="block text-gray-600 text-sm font-medium">Email</label>
-                <input type="text" id="name" name="name" className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500" placeholder="John Doe"/>
-            </div>
-            <div className="mb-4">
-                <label for="pass" class="block text-gray-600 text-sm font-medium">Paswword</label>
-                <input type="password" id="pass" name="password" className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500" placeholder="password"/>
-            </div>
-           
-           
-                   </form>
-                  </div>
-
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-red-400 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      
-                    >
-                      Submit
-                    </button>
+                    <form onSubmit={formSubmitHandler}>
+                      <div className="mb-4">
+                        <label className="block text-gray-600 text-sm font-medium">
+                          Email
+                        </label>
+                        <input
+                          value={inputs.email}
+                          onChange={handleChange}
+                          type="text"
+                          id="email"
+                          name="email"
+                          className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <label
+                          htmlFor="pass"
+                          className="block text-gray-600 text-sm font-medium"
+                        >
+                          Paswword
+                        </label>
+                        <input
+                          value={inputs.password}
+                          onChange={handleChange}
+                          type="password"
+                          id="pass"
+                          name="password"
+                          className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                          placeholder="password"
+                        />
+                      </div>
+                      <div className="mt-4">
+                        <button
+                          type="button"
+                          className="inline-flex justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-red-400 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          onClick={closeModal}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        >
+                          login
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
