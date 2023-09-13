@@ -10,6 +10,7 @@ import {
   ConsulteComputer,
   DashboardRH,
   CreerCompteSalarie,
+  ListeEmployee
 } from "../pages";
 
 const Routers = () => {
@@ -28,10 +29,11 @@ const Routers = () => {
       ],
     },
     {
-      path: "/DashboardRH",
+      path: "DashboardRH",
       element: <DashboardRH />,
       children: [
         { path: "CreerCompteSalarie", element: <CreerCompteSalarie /> },
+        { path: "ListeEmployee", element: <ListeEmployee /> },
       ],
     },
   ]);

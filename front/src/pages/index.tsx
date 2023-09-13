@@ -12,3 +12,4 @@ export { HeaderRH } from "./DashboardRH/Header";
 export { SidebarRH} from "./DashboardRH/SideBare";
 
 export {CreerCompteSalarie} from "./DashboardRH/CreerCompteSalarie";
+export {ListeEmployee} from "./DashboardRH/ListeEmployee";

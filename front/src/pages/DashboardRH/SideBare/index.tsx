@@ -6,14 +6,17 @@ export const SidebarRH = () => {
       <div className="flex flex-col h-full">
         <ul className=" ml-2 mt-24">
           <li className="mb-8 hover:bg-[#7BAD77]  cursor-pointer  transition duration-300">
-            <Link className="text-black hover:text-black " to="/DashboardRH/CreerCompteSalarie">
+            <Link
+              className="text-black hover:text-black "
+              to="/DashboardRH/CreerCompteSalarie"
+            >
               Créer Compte Salariée
             </Link>
           </li>
           <li className="mb-8 hover:bg-[#7BAD77] cursor-pointer transition duration-300">
             <Link
               className="text-black hover:text-black "
-              to="/DashboardEmployee/listConge"
+              to="/DashboardRH/ListeEmployee"
             >
               Liste Employés
             </Link>
@@ -23,7 +26,7 @@ export const SidebarRH = () => {
               className="text-black hover:text-black "
               to="/DashboardEmployee/demandeConge"
             >
-             Liste Demandes des congées
+              Liste Demandes des congées
             </Link>
           </li>
           <li className="mb-8  hover:bg-[#7BAD77]  cursor-pointer transition duration-300">
