@@ -1,10 +1,9 @@
 import { useState, useEffect, FC, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { useDispatch /* useSelector */ } from "react-redux";
-import { Dispatch } from "redux";
-/* import { RootState } from "Redux/store"; */
-import { toast } from "react-toastify";
-import { loginUser } from "../../../Redux/action/auth.action";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import { RootState } from "../../../Redux/store";
+import { login } from "../../../Redux//action/auth.action";
 
 interface Props {
   isOpenM: boolean;
@@ -16,22 +15,32 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   useEffect(() => {
     setIsModalOpen(isOpenM);
   }, [isOpenM]);
-  const dispatch: Dispatch = useDispatch();
-  /* const auth = useSelector((state: RootState) => state.auth); */
 
-  // Form Submit Handler
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const formSubmitHandler = (e) => {
-    e.preventDefault();
-    if (email.trim() === "")
-      return toast.error("email or password is required");
-    if (password.trim() === "")
-      return toast.error("email or password is required");
-
-    dispatch(loginUser({ email, password }));
+  //initialize inputs empty
+  const [inputs, setInputs] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // console.log(inputs);
+  const dispatch = useDispatch();
+  const { user, isAuthenticated } = useSelector(
+    (state: RootState) => state.auth
+  );
+  console.log(isAuthenticated);
+  console.log(user);
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    if (inputs.email.trim() === "")
+      return toast.info("email or password is required");
+    if (inputs.password.trim() === "")
+      return toast.error("email or password is required");
+
+    dispatch(login(inputs));
+  };
   return (
     <>
       <Transition appear show={isModalOpen} as={Fragment}>
@@ -79,11 +88,11 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                           Email
                         </label>
                         <input
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          value={inputs.email}
+                          onChange={handleChange}
                           type="text"
-                          id="name"
-                          name="name"
+                          id="email"
+                          name="email"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
                           placeholder="John Doe"
                         />
@@ -96,8 +105,8 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                           Paswword
                         </label>
                         <input
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
+                          value={inputs.password}
+                          onChange={handleChange}
                           type="password"
                           id="pass"
                           name="password"
