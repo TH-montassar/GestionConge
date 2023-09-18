@@ -1,8 +1,8 @@
 import { Login } from "../../pages/Authentication/Login";
-import { useState } from "react";
+
 
 export const Header = () => {
-  const [isOpenD, setIsOpenD] = useState(false);
+  
   return (
     <>
       <header
@@ -16,15 +16,7 @@ export const Header = () => {
           />
         </div>
         <div className="ml-8">
-          <button
-            style={{ backgroundColor: "white" }}
-            className="w-32 h-12 mr-4 border-b border-green-200 text-black"
-            onClick={() => {
-              setIsOpenD(true);
-            }}
-          >
-            Sign in
-          </button>
+        
 
           <button
             style={{ backgroundColor: "#7BAD77" }}
@@ -34,7 +26,7 @@ export const Header = () => {
           </button>
         </div>
       </header>
-      <Login isOpenM={isOpenD} closeModal={() => setIsOpenD(false)} />
+      <Login  />
     </>
   );
 };
