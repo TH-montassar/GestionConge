@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "client:dev": "cd front && npm run dev",
-    "server:dev": "cd back && nodemon index.js",
-    "start": "cd back &&  node index.js",
+    "server:dev": "cd back && nodemon server.js",
+    "start": "cd back &&  node server.js",
     "dev": "concurrently -n server,client -c green,blue \"npm run server:dev\" \"npm run client:dev\""
   },
   "keywords": [],
