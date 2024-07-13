@@ -10,7 +10,7 @@ import {
   ConsulteComputer,
   DashboardRH,
   CreerCompteSalarie,
-  ListeEmployee
+  ListeEmployee,
 } from "../pages";
 
 const Routers = () => {
