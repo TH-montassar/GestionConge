@@ -1,8 +1,10 @@
 import { Login } from "../../pages/Authentication/Login";
+import { Register } from "../../pages/Authentication/Register";
 import { useState } from "react";
 
 export const Header = () => {
   const [isOpenD, setIsOpenD] = useState(false);
+  const [isOpenR, setIsOpenR] = useState(false);
   return (
     <>
       <header
@@ -28,12 +30,16 @@ export const Header = () => {
           <button
             style={{ backgroundColor: "#7BAD77" }}
             className="w-32 h-12 mr-4 text-black"
+            onClick={() => {
+              setIsOpenR(true);
+            }}
           >
             Sign Up
           </button>
         </div>
       </header>
       <Login isOpenM={isOpenD} closeModal={() => setIsOpenD(false)} />
+      <Register isOpenR={isOpenR} closeModal={() => setIsOpenR(false)} />
     </>
   );
 };

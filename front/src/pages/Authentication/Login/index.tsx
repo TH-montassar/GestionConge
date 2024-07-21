@@ -30,9 +30,11 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   console.log("the name", inputs.password);
   // console.log(inputs);
   const dispatch = useDispatch();
+
+  /*
   const { user, isAuthenticated } = useSelector(
     (state: RootState) => state.auth
-  );
+  );*/
   //console.log(isAuthenticated);
   // console.log(user);
   const formSubmitHandler = (e) => {
@@ -101,7 +103,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                           id="email"
                           name="email"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-                          placeholder="John Doe"
+                          placeholder="Exemple@xyz.com"
                         />
                       </div>
                       <div className="mb-4">
@@ -118,20 +120,20 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                           id="pass"
                           name="password"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-                          placeholder="password"
+                          placeholder="Your Password"
                         />
                       </div>
                       <div className="mt-4">
                         <button
                           type="button"
-                          className="inline-flex justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-red-400 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          className="mr-5 inline-flex justify-center rounded-md border border-transparent bg-red-50  px-4 py-2 text-sm font-medium text-red-400 hover:bg-red-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 hover:border-red-500 focus-visible:ring-offset-2"
                           onClick={closeModal}
                         >
                           Cancel
                         </button>
                         <button
                           type="submit"
-                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                          className="inline-flex justify-center rounded-md border border-transparent bg-blue-50 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                         >
                           login
                         </button>
