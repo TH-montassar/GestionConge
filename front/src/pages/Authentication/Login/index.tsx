@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { RootState } from "../../../Redux/store";
 import { login } from "../../../Redux//action/auth.action";
-
+import { useNavigate } from "react-router-dom";
 interface Props {
   isOpenM: boolean;
   closeModal: () => void;
@@ -26,15 +26,15 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  console.log("the name", inputs.email);
-  console.log("the name", inputs.password);
+  //console.log("the name", inputs.email);
+  //console.log("the name", inputs.password);
   // console.log(inputs);
   const dispatch = useDispatch();
   const { user, isAuthenticated } = useSelector(
     (state: RootState) => state.auth
   );
   //console.log(isAuthenticated);
-  // console.log(user);
+  //console.log(user.user.role);
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if (!inputs.email || !inputs.password) {
@@ -48,6 +48,15 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
     setIsEmpty(false);
     dispatch(login(inputs));
   };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated && user.user.role == "RH") {
+      navigate("/DashboardRH");
+    } else if (isAuthenticated) {
+      navigate("/DashboardEmployee");
+    }
+  }, [isAuthenticated, user, navigate]);
   return (
     <>
       <Transition appear show={isModalOpen} as={Fragment}>
