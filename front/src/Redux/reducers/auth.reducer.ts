@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login } from "../../Redux/action/auth.action";
+import { login, register } from "../../Redux/action/auth.action";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -30,6 +30,19 @@ export const authSlice = createSlice({
       state.isAuthenticated = true;
     });
     builder.addCase(login.rejected, (state, action) => {
+      state.pending = null;
+      state.error = action.error.message;
+    });
+    builder.addCase(register.pending, (state) => {
+      state.pending = true;
+      state.error = null;
+    });
+    builder.addCase(register.fulfilled, (state, action) => {
+      state.pending = false;
+      state.user = action.payload;
+      
+    });
+    builder.addCase(register.rejected, (state, action) => {
       state.pending = null;
       state.error = action.error.message;
     });
