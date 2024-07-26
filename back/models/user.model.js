@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema(
     },
     matriculate: {
       type: String,
-      default: "g999999",
+      required: true,
     },
     password: {
       type: String,

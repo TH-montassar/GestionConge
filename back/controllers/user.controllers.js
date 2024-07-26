@@ -19,6 +19,7 @@ export const register = async (req, res) => {
     const newUser = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
+      matriculate: req.body.matricule,
       email: req.body.email,
       password: hashPassword,
       profile: savedProfile._id,
@@ -35,7 +36,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-      email: req.body.email,
+      matriculate: req.body.matricule,
     });
     if (!user)
       return res.status(404).json({
@@ -53,6 +54,7 @@ export const login = async (req, res) => {
       {
         _id: user._id,
         email: user.email,
+        matriculate: user.matriculate,
         firstName: user.firstName,
         lastName: user.lastName,
         isAdmin: user.isAdmin,

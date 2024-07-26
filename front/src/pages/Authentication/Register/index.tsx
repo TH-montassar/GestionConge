@@ -26,27 +26,22 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",    
+    matricule: "",    
     email: "",
     password: "",
   });
-
   
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  console.log(inputs.firstName);
-  console.log(inputs.lastName);
-  console.log(inputs.email);
-  console.log(inputs.password);
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
   
-    if (!inputs.firstName || !inputs.lastName || !inputs.email || !inputs.password) {
+    if (!inputs.firstName || !inputs.lastName || !inputs.matricule || !inputs.email || !inputs.password) {
       setIsEmpty(true);
       return;
     }
@@ -141,6 +136,20 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
                           name="lastName"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
                           placeholder="Your Last Name"
+                        />
+                      </div>
+                      <div className="mb-4">
+                        <label className="block text-gray-600 text-sm font-medium">
+                          Matricule
+                        </label>
+                        <input
+                          value={inputs.matricule}
+                          onChange={handleChange}
+                          type="text"
+                          id="matricule"
+                          name="matricule"
+                          className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+                          placeholder="Your Matricule(e.g: gXXXXXX)"
                         />
                       </div>
                       <div className="mb-4">
