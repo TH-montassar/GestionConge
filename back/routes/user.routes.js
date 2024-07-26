@@ -2,7 +2,9 @@ import { Router } from "express";
 const router = Router();
 
 import User from "../models/user.model.js";
-import { login, register } from "../controllers/user.controllers.js";
+import { authCheck, login, register } from "../controllers/user.controllers.js";
+import verifyToken from "../middlewares/verifyToken.js";
+
 router.param("user", async (req, res, next, id) => {
   try {
     const user = await User.findById(id);
@@ -23,6 +25,7 @@ router.param("user", async (req, res, next, id) => {
 
 router.post("/user/register", register);
 router.post("/user/login", login);
+router.get("/user/check", verifyToken, authCheck);
 export default router;
 /**
  * @swagger

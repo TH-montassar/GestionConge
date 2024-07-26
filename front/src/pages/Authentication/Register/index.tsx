@@ -1,11 +1,10 @@
 import { useState, useEffect, FC, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../../Redux/action/auth.action";
 import { useNavigate } from "react-router-dom";
-
 
 interface Props {
   isOpenR: boolean;
@@ -16,13 +15,11 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
   const [isEmpty, setIsEmpty] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(isOpenR);
 
-
   useEffect(() => {
     setIsModalOpen(isOpenR);
   }, [isOpenR]);
 
-
-//initialize sign up inputs  
+  //initialize sign up inputs
   const [inputs, setInputs] = useState({
     firstName: "",
     lastName: "",    
@@ -40,33 +37,31 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
+
   
     if (!inputs.firstName || !inputs.lastName || !inputs.matricule || !inputs.email || !inputs.password) {
       setIsEmpty(true);
       return;
     }
-  
+
     setIsEmpty(false);
-    
+
     try {
       const resultAction = await dispatch(register(inputs));
       if (register.fulfilled.match(resultAction)) {
-        closeModal()
-        toast.success('Registration successful!');
+        closeModal();
+        toast.success("Registration successful!");
       } else if (register.rejected.match(resultAction)) {
         if (resultAction.error.message) {
           toast.error(resultAction.error.message);
         } else {
-          toast.error('Registration failed. Please try again.');
+          toast.error("Registration failed. Please try again.");
         }
       }
     } catch (error) {
-      toast.error('An error occurred. Please try again.');
+      toast.error("An error occurred. Please try again.");
     }
-
   };
-
-
 
   return (
     <>
@@ -183,7 +178,7 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
                           placeholder="Your Password"
                         />
                       </div>
-                      
+
                       <div className="mt-4">
                         <button
                           type="button"
@@ -211,12 +206,10 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
         </Dialog>
       </Transition>
       <ToastContainer
-      position="top-center"
-      hideProgressBar={true}
-      autoClose={2000}
-    />
+        position="top-center"
+        hideProgressBar={true}
+        autoClose={2000}
+      />
     </>
   );
- };
-
-
+};
