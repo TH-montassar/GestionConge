@@ -70,3 +70,17 @@ export const login = async (req, res) => {
     res.status(500).json(error.message);
   }
 };
+export const authCheck = async (req, res) => {
+  try {
+    const user = await User.findById(req.verifiedUser._id)
+      //.populate("address")
+      .populate({ path: "profile", select: "avatar birthday " });
+    if (!user) {
+      return res.status(404).json({ message: "not found User" });
+    } else {
+      return res.status(200).json(user);
+    }
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+};

@@ -25,18 +25,10 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
-  //console.log("the name", inputs.email);
-  //console.log("the name", inputs.password);
-  // console.log(inputs);
   const dispatch = useDispatch();
-
-  /*
   const { user, isAuthenticated } = useSelector(
     (state: RootState) => state.auth
-  );*/
-  //console.log(isAuthenticated);
-  //console.log(user.user.role);
+  );
   const formSubmitHandler = (e) => {
     e.preventDefault();
     if (!inputs.email || !inputs.password) {
