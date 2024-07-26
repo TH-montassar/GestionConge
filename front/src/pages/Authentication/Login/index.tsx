@@ -19,19 +19,21 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
 
   //initialize inputs empty
   const [inputs, setInputs] = useState({
-    email: "",
+    matricule: "",
     password: "",
   });
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
   const dispatch = useDispatch();
+
   const { user, isAuthenticated } = useSelector(
     (state: RootState) => state.auth
   );
+
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    if (!inputs.email || !inputs.password) {
+    if (!inputs.matricule || !inputs.password) {
       setIsEmpty(true);
       // Reset the isEmpty state to false after 1 second
       setTimeout(() => {
@@ -95,16 +97,16 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                     <form onSubmit={formSubmitHandler}>
                       <div className="mb-4">
                         <label className="block text-gray-600 text-sm font-medium">
-                          Email
+                          Matricule
                         </label>
                         <input
-                          value={inputs.email}
+                          value={inputs.matricule}
                           onChange={handleChange}
                           type="text"
-                          id="email"
-                          name="email"
+                          id="matricule"
+                          name="matricule"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-                          placeholder="Exemple@xyz.com"
+                          placeholder="Enter your Matricule(e.g: gXXXXXX)"
                         />
                       </div>
                       <div className="mb-4">
