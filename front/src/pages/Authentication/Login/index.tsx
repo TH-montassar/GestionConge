@@ -27,7 +27,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   };
   const dispatch = useDispatch();
 
-  const { user, isAuthenticated, pending } = useSelector(
+  const { user, isAuthenticated } = useSelector(
     (state: RootState) => state.auth
   );
 
