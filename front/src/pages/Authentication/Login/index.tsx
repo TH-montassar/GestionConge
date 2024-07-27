@@ -27,7 +27,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   };
   const dispatch = useDispatch();
 
-  const { user, isAuthenticated } = useSelector(
+  const { user, isAuthenticated, pending } = useSelector(
     (state: RootState) => state.auth
   );
 
@@ -48,10 +48,12 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
 
   useEffect(() => {
     // @ts-ignore
-    if (isAuthenticated && user.role == "RH") {
-      navigate("/DashboardRH");
-    } else if (isAuthenticated) {
-      navigate("/DashboardEmployee");
+    if (isAuthenticated) {
+      if (user.role == "RH") {
+        navigate("/DashboardRH");
+      } else {
+        navigate("/DashboardEmployee");
+      }
     }
   }, [isAuthenticated, user, navigate]);
   return (
