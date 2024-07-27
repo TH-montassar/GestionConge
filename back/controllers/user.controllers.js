@@ -19,8 +19,9 @@ export const register = async (req, res) => {
     const newUser = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      matriculate: req.body.matricule,
+      matriculate: req.body.matriculate,
       email: req.body.email,
+      role: req.body.role,
       password: hashPassword,
       profile: savedProfile._id,
     });
@@ -36,7 +37,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-      matriculate: req.body.matricule,
+      matriculate: req.body.matriculate,
     });
     if (!user)
       return res.status(404).json({
@@ -65,9 +66,7 @@ export const login = async (req, res) => {
       }
     );
     user.token = accessToken;
-    return res.status(200).json({
-      user: user,
-    });
+    return res.status(200).json({ user });
   } catch (error) {
     res.status(500).json(error.message);
   }

@@ -22,24 +22,28 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
   //initialize sign up inputs
   const [inputs, setInputs] = useState({
     firstName: "",
-    lastName: "",    
-    matricule: "",    
+    lastName: "",
+    matriculate: "",
     email: "",
     password: "",
   });
-  
+
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
-  
-    if (!inputs.firstName || !inputs.lastName || !inputs.matricule || !inputs.email || !inputs.password) {
+    if (
+      !inputs.firstName ||
+      !inputs.lastName ||
+      !inputs.matriculate ||
+      !inputs.email ||
+      !inputs.password
+    ) {
       setIsEmpty(true);
       return;
     }
@@ -135,16 +139,16 @@ export const Register: FC<Props> = ({ isOpenR, closeModal }) => {
                       </div>
                       <div className="mb-4">
                         <label className="block text-gray-600 text-sm font-medium">
-                          Matricule
+                          matriculate
                         </label>
                         <input
-                          value={inputs.matricule}
+                          value={inputs.matriculate}
                           onChange={handleChange}
                           type="text"
-                          id="matricule"
-                          name="matricule"
+                          id="matriculate"
+                          name="matriculate"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-                          placeholder="Your Matricule(e.g: gXXXXXX)"
+                          placeholder="Your matriculate(e.g: gXXXXXX)"
                         />
                       </div>
                       <div className="mb-4">

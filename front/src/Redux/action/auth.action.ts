@@ -8,7 +8,7 @@ export const register = createAsyncThunk("register", async (user) => {
 });
 
 export const login = createAsyncThunk("login", async (user) => {
-  const res = await instance.post("/user/login", user);
+  const res = await instance.post("user/login", user);
   setAuthToken(res.data.user.token);
   return res.data;
 });

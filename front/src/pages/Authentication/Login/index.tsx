@@ -19,7 +19,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
 
   //initialize inputs empty
   const [inputs, setInputs] = useState({
-    matricule: "",
+    matriculate: "",
     password: "",
   });
   const handleChange = (e) => {
@@ -33,7 +33,7 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    if (!inputs.matricule || !inputs.password) {
+    if (!inputs.matriculate || !inputs.password) {
       setIsEmpty(true);
       // Reset the isEmpty state to false after 1 second
       setTimeout(() => {
@@ -47,7 +47,8 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isAuthenticated && user.user.role == "RH") {
+    // @ts-ignore
+    if (isAuthenticated && user.role == "RH") {
       navigate("/DashboardRH");
     } else if (isAuthenticated) {
       navigate("/DashboardEmployee");
@@ -97,16 +98,16 @@ export const Login: FC<Props> = ({ isOpenM, closeModal }) => {
                     <form onSubmit={formSubmitHandler}>
                       <div className="mb-4">
                         <label className="block text-gray-600 text-sm font-medium">
-                          Matricule
+                          matriculate
                         </label>
                         <input
-                          value={inputs.matricule}
+                          value={inputs.matriculate}
                           onChange={handleChange}
                           type="text"
-                          id="matricule"
-                          name="matricule"
+                          id="matriculate"
+                          name="matriculate"
                           className="border rounded px-3 py-2 w-full focus:outline-none focus:border-blue-500"
-                          placeholder="Enter your Matricule(e.g: gXXXXXX)"
+                          placeholder="Enter your matriculate(e.g: gXXXXXX)"
                         />
                       </div>
                       <div className="mb-4">

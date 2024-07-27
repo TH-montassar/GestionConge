@@ -85,13 +85,13 @@ export default router;
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               matriculate:
  *                 type: string
  *               password:
  *                 type: string
  *             example:
- *               email: user@example.com
- *               password: string
+ *               matriculate:700532
+ *               password:testvalid
  *     responses:
  *       200:
  *         description: User login successful

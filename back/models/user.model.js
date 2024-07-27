@@ -59,25 +59,33 @@ const swaggerUserSchema = mongooseToSwagger(User);
  *         firstName:
  *           type: string
  *           minLength: 5
+ *           example: "Themri"
  *         lastName:
  *           type: string
  *           minLength: 5
+ *           example: "montassar"
  *         email:
  *           type: string
  *           format: email
+ *           example: "montassarTH@RH.com"
  *         password:
  *           type: string
  *           minLength: 6
  *           maxLength: 20
+ *           example: "700532"
  *         role:
  *           type: string
  *           enum: ["RH", "manager", "salaried"]
  *           description: The role of the user.
+ *         matriculate:
+ *            type: "string"
+ *            example: "700532"
  *       required:
  *         - firstName
  *         - lastName
  *         - email
  *         - password
+ *         - "matriculate"
  *
  *
 */
