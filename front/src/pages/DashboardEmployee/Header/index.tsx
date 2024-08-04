@@ -1,4 +1,14 @@
 import { useEffect, useState } from "react";
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import {
+  ArchiveBoxXMarkIcon,
+  ChevronDownIcon,
+  PencilIcon,
+  Square2StackIcon,
+  TrashIcon,
+} from '@heroicons/react/16/solid'
+import { useDispatch } from "react-redux";
+import { logout } from "../../../Redux/action/auth.action";
 
 export const Header = () => {
   const [currentDateTime, setCurrentDateTime] = useState("");
@@ -32,6 +42,16 @@ export const Header = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    // Dispatch the logout action
+    dispatch(logout());
+
+    //redirect the user to the login page
+    window.location.href = '/';
+  };
+
   return (
     <header className="h-28 flex items-center justify-between mx-auto">
      <a href="/"><img
@@ -47,17 +67,34 @@ export const Header = () => {
         <p className=" ml-4">semaine 3/20</p>
       </div>
       <div className="flex flex-wrap items-center justify-center">
-        <div className="mt-8 text-lg font-bold flex flex-col items-center">
-          <p className=" ">Hadil Hammami</p>
-          <p className="">g700343</p>
-        </div>
-        <div className="w-16 h-16 mr-8 mt-4">
+      <Menu>
+        <MenuButton className="inline-flex items-center w-60 gap-2 rounded-md  py-1.5 px-3 text-sm/6 font-semibold  shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-100 border-none data-[open]:bg-gray-100 data-[focus]:outline-1 data-[focus]:outline-white">
+          <div className="mt-8 text-lg font-bold flex flex-col items-center">
+            <p className="">Hadil Hammami</p>
+            <p className="">g700343</p>
+          </div>
+          <div className="w-16 h-16  mt-4">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNuhnMCA2S7u_q6YKfsWFofBEcucmscNH8qQ&usqp=CAU"
             className="rounded-full"
             alt="profilePic"
           />
         </div>
+          
+        </MenuButton>
+
+        <MenuItems
+          transition
+          anchor="bottom end"
+          className=" w-60  origin-top-right rounded-xl  bg-white/5 p-1 text-sm/6  transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+        >
+          <MenuItem>
+            <button className=" group flex w-full border-none justify-center gap-2 rounded-lg py-1.5 px-3 d focus:outline-none" onClick={handleLogout}>
+              Logout
+            </button>
+          </MenuItem>
+        </MenuItems>
+      </Menu>
       </div>
     </header>
   );
