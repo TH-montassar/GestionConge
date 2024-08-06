@@ -90,8 +90,8 @@ export default router;
  *               password:
  *                 type: string
  *             example:
- *               matriculate:700532
- *               password:testvalid
+ *               matriculate: "700532"
+ *               password: "700532"
  *     responses:
  *       200:
  *         description: User login successful
