@@ -13,6 +13,19 @@ export const login = createAsyncThunk("login", async (user) => {
   return res.data;
 });
 
+export const logout = createAsyncThunk(
+  'logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      // Clear the token from local storage
+      localStorage.removeItem('token');
+    } catch (error) {
+      console.error('Error during logout:', error);
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const authCheck = createAsyncThunk(
   "authCheck",
   async (_, { rejectWithValue }) => {

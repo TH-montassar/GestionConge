@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { authCheck, login, register } from "../../Redux/action/auth.action";
+import { authCheck, login, register, logout } from "../../Redux/action/auth.action";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -51,7 +51,10 @@ export const authSlice = createSlice({
       state.pending = false;
       return state;
     });
-
+    builder.addCase(logout.fulfilled, (state) => {
+      // Reset your state on logout
+      return initialState;
+    });
     builder.addCase(authCheck.pending, (state, action) => {
       state.pending = true;
       return state;
