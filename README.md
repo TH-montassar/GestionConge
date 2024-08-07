@@ -1,8 +1,8 @@
-create .env file in backend folder 
+create .env file in the backend folder 
 and put this information
 ====================================================================
-PORT = 
-HOST=localhost
+PORT =
+HOST = localhost
 MONGO_DB_URL = 
 TOKEN_SECRET= 
 NODE_ENV=
